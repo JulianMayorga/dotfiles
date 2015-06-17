@@ -9,6 +9,11 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'bling/vim-airline'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'vim-scripts/vim-auto-save'
+" Plugin 'Valloric/YouCompleteMe'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -21,6 +26,8 @@ Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'airblade/vim-gitgutter'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -67,7 +74,7 @@ set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 " space open/closes folds
 nnoremap <space> za
-let mapleader=","       " leader is comma
+let mapleader="\<Space>"
 " open ag.vim
 nnoremap <leader>a :Ag
 " CtrlP settings
@@ -84,7 +91,34 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 set nobackup " fix for karma: file xxx removed https://github.com/paulmillr/chokidar/issues/35
- 
+
 " This does what it says on the tin. It will check your file on open too, not
 " just on save
 let g:syntastic_check_on_open=1
+
+" Copy and paste to system clipboard with <Space>p and <Space>y
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Enter visual mode with <Space><Space>
+nmap <Leader><Leader> V
+
+" Show status line all the time
+set laststatus=2
+
+" airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'kolor'
+
+set t_Co=256
+
+" let g:auto_save = 1
+
+let g:ctrlp_buffer_cmd = 'CtrlB'
+
+set relativenumber
+set number
