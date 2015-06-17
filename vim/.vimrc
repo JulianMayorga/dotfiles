@@ -21,6 +21,8 @@ Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
+Plugin 'Slava/vim-spacebars'
+Plugin 'mxw/vim-jsx'
 
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
@@ -88,3 +90,10 @@ set nobackup " fix for karma: file xxx removed https://github.com/paulmillr/chok
 " This does what it says on the tin. It will check your file on open too, not
 " just on save
 let g:syntastic_check_on_open=1
+
+let g:syntastic_html_tidy_ignore_errors = [
+      \  'content occurs after end of body',
+    \  '<template> is not recognized!',
+    \  'discarding unexpected <template>',
+    \  'discarding unexpected </template>',
+    \ ]
